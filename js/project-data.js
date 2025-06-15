@@ -35,15 +35,15 @@ const projectData = [
         title: "MDWord",
         category: "application",
         featured: true,
-        shortDescription: "MDWord is a web-based application that converts between Markdown and Word documents",
-        fullDescription: "MDWord is a web application that provides seamless conversion between Markdown files and Word documents. It offers a simple solution for maintaining document formatting across different platforms and systems.",
+        shortDescription: "MDWord is a live web application that converts between Markdown and Word documents. Deployed and running on Netlify with continuous integration.",
+        fullDescription: "MDWord is a production web application that provides seamless conversion between Markdown files and Word documents. Unlike local GitHub repositories, this is a fully deployed application running on Netlify's cloud platform, offering real-time document conversion capabilities accessible from anywhere.",
         imageSrc: "https://github.com/TrazynCache/Markdown-Word-Converter/raw/main/images/MDWord_TrazynCache_screenshot_cropped.PNG",
         imageAlt: "MDWord Screenshot",
-        techTags: ["React", "Tailwind CSS", ".MD", "Word"],
+        techTags: ["React", "Tailwind CSS", ".MD", "Word", "Netlify"],
         links: [
             {
-                text: "GitHub",
-                icon: "fab fa-github",
+                text: "Live App",
+                icon: "fas fa-external-link-alt",
                 url: "https://mdword.trazyncache.com/",
                 external: true
             }
