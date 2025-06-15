@@ -1,5 +1,7 @@
-// Service Worker for offline functionality
-const CACHE_NAME = 'necron-portfolio-v4';
+// Service Worker for automatic cache management and version control
+const CACHE_VERSION = 'v1.0.2';
+const CACHE_NAME = `necron-portfolio-${CACHE_VERSION}`;
+const VERSION_CACHE = 'version-cache';
 const urlsToCache = [
   '/',
   '/index.html',
@@ -19,6 +21,70 @@ const urlsToCache = [
   '/manifest.json'
 ];
 
+// Check for version updates
+async function checkForUpdates() {
+  try {
+    const response = await fetch('/manifest.json', { cache: 'no-cache' });
+    const manifest = await response.json();
+    const newVersion = manifest.version;
+    const newTimestamp = manifest.build_timestamp;
+    
+    // Get stored version info
+    const versionCache = await caches.open(VERSION_CACHE);
+    const storedResponse = await versionCache.match('version-info');
+    
+    if (storedResponse) {
+      const storedData = await storedResponse.json();
+      
+      // Check if version or timestamp has changed
+      if (storedData.version !== newVersion || storedData.build_timestamp !== newTimestamp) {
+        console.log('New version detected:', newVersion);
+        await clearAllCaches();
+        await storeVersionInfo(newVersion, newTimestamp);
+        return true; // Update available
+      }
+    } else {
+      // First time - store version info
+      await storeVersionInfo(newVersion, newTimestamp);
+    }
+    
+    return false; // No update
+  } catch (error) {
+    console.error('Error checking for updates:', error);
+    return false;
+  }
+}
+
+// Store version information
+async function storeVersionInfo(version, timestamp) {
+  const versionCache = await caches.open(VERSION_CACHE);
+  const versionData = { version, build_timestamp: timestamp };
+  const response = new Response(JSON.stringify(versionData));
+  await versionCache.put('version-info', response);
+}
+
+// Clear all caches except version cache
+async function clearAllCaches() {
+  const cacheNames = await caches.keys();
+  const deletePromises = cacheNames
+    .filter(name => name !== VERSION_CACHE)
+    .map(name => {
+      console.log('Deleting cache:', name);
+      return caches.delete(name);
+    });
+  
+  await Promise.all(deletePromises);
+  
+  // Notify all clients about the update
+  const clients = await self.clients.matchAll();
+  clients.forEach(client => {
+    client.postMessage({
+      type: 'CACHE_UPDATED',
+      message: 'New version available! The page will refresh automatically.'
+    });
+  });
+}
+
 // Install event - cache assets
 self.addEventListener('install', event => {
   event.waitUntil(
@@ -31,21 +97,6 @@ self.addEventListener('install', event => {
   );
 });
 
-// Activate event - clean old caches
-self.addEventListener('activate', event => {
-  event.waitUntil(
-    caches.keys().then(cacheNames => {
-      return Promise.all(
-        cacheNames.map(cacheName => {
-          if (cacheName !== CACHE_NAME) {
-            console.log('Deleting old cache:', cacheName);
-            return caches.delete(cacheName);
-          }
-        })
-      );
-    }).then(() => self.clients.claim()) // Take control immediately
-  );
-});
 
 // Fetch event - serve from cache, fallback to network
 self.addEventListener('fetch', event => {
@@ -110,5 +161,37 @@ function updateCache(request) {
 self.addEventListener('message', event => {
   if (event.data.action === 'skipWaiting') {
     self.skipWaiting();
+  } else if (event.data.action === 'checkForUpdates') {
+    event.waitUntil(checkForUpdates().then(hasUpdate => {
+      event.ports[0].postMessage({ hasUpdate });
+    }));
+  }
+});
+
+// Periodic update check when service worker becomes active
+self.addEventListener('activate', event => {
+  event.waitUntil(
+    Promise.all([
+      // Clean old caches
+      caches.keys().then(cacheNames => {
+        return Promise.all(
+          cacheNames.map(cacheName => {
+            if (cacheName !== CACHE_NAME && cacheName !== VERSION_CACHE) {
+              console.log('Deleting old cache:', cacheName);
+              return caches.delete(cacheName);
+            }
+          })
+        );
+      }),
+      // Check for updates
+      checkForUpdates()
+    ]).then(() => self.clients.claim())
+  );
+});
+
+// Background sync for update checking
+self.addEventListener('sync', event => {
+  if (event.tag === 'update-check') {
+    event.waitUntil(checkForUpdates());
   }
 });
