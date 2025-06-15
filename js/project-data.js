@@ -112,7 +112,7 @@ const projectData = [
 // About section data - modify this to update the about text on the homepage
 const aboutData = {
     title: "About Archives of TrazynCache",
-    description: "I am a vibe coder, not a digital architect, driven by the pursuit of crafting functional technological artifacts. My work blends human creativity with advanced artificial intelligence, forging tools that actually solve problems and make things easier. Each creation is a testament to practical design principles, meticulously shaped through collaboration with my AI-driven systems. What you see here is my curated collection of working examples, each piece a reflection of humanity's boundless potential to build solutions that matter, preserved for posterity in the annals of technological achievement."
+    description: "I am a developer focused on creating practical technological solutions. My work combines human creativity with artificial intelligence to build tools that solve real problems and improve workflows. Each project represents a commitment to functional design and user-centered development, crafted through collaborative AI-assisted programming. This collection showcases working applications that demonstrate the potential of thoughtful software development."
 };
 
 // Helper functions for project data
