@@ -4,6 +4,9 @@
  * This file contains centralized project information used across the website.
  * Edit this file to modify existing projects or add new ones.
  * 
+ * NOTE: Only the first 3 projects (top to bottom) will display as "Recent Acquisitions" 
+ * on the homepage. Additional projects will only appear on the projects page.
+ * 
  * Structure for each project:
  * {
  *   id: "unique-id",                 // Unique identifier for the project
@@ -88,7 +91,7 @@ const projectData = [
         id: "time-tracker",
         title: "Simple Time Tracker",
         category: "tracking",
-        featured: true,
+        featured: false,
         shortDescription: "A time tracking application that logs and analyzes task durations.",
         fullDescription: "The Simple Time Tracker is an efficient tool for monitoring time spent on various tasks. It provides detailed logging and analysis of time allocation, helping users optimize their productivity.",
         imageSrc: "https://github.com/TrazynCache/Simple-Time-Tracker-for-Tasks/blob/master/images/Simple_Time_Tracker_front.png?raw=true",
@@ -106,13 +109,20 @@ const projectData = [
     // Add new projects here following the same structure
 ];
 
+// About section data - modify this to update the about text on the homepage
+const aboutData = {
+    title: "About Archives of TrazynCache",
+    description: "I am a vibe coder, not a digital architect, driven by the pursuit of crafting functional technological artifacts. My work blends human creativity with advanced artificial intelligence, forging tools that actually solve problems and make things easier. Each creation is a testament to practical design principles, meticulously shaped through collaboration with my AI-driven systems. What you see here is my curated collection of working examples, each piece a reflection of humanity's boundless potential to build solutions that matter, preserved for posterity in the annals of technological achievement."
+};
+
 // Helper functions for project data
 const projectHelpers = {
     // Get all projects
     getAllProjects: () => projectData,
     
-    // Get featured projects for homepage
-    getFeaturedProjects: () => projectData.filter(project => project.featured),
+    // Get featured projects for homepage (first 3 projects from the top of the array)
+    // To add new projects to homepage: add them at the top of projectData array with featured: true
+    getFeaturedProjects: () => projectData.slice(0, 3),
     
     // Get projects by category
     getProjectsByCategory: (category) => {

@@ -5,6 +5,20 @@
  * on both the index.html (featured projects) and projects.html (all projects) pages.
  */
 
+// Renders the about section on the index page
+function renderAboutSection() {
+    const aboutTitle = document.querySelector('.section-title');
+    const aboutText = document.querySelector('.section-text');
+    
+    if (aboutTitle && aboutData) {
+        aboutTitle.innerHTML = aboutData.title.replace('About ', 'About <span class="highlight">') + '</span>';
+    }
+    
+    if (aboutText && aboutData) {
+        aboutText.textContent = aboutData.description;
+    }
+}
+
 // Renders featured projects on the index page
 function renderFeaturedProjects() {
     const container = document.querySelector('.featured-projects .project-grid');
@@ -164,6 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const isProjectsPage = document.querySelector('.project-list');
     
     if (isIndexPage) {
+        renderAboutSection();
         renderFeaturedProjects();
     }
     
