@@ -1,5 +1,5 @@
 /**
- * Resource Optimizer for Necron Portfolio
+ * Resource Optimizer for IronAdamant Portfolio
  * Handles preloading, resource optimization, responsive images, and faster transitions
  * Combines functionality from resource-optimizer.js, responsive-images.js, and parts of performance-monitor.js
  */
@@ -152,7 +152,7 @@
         // Use browser cache control when available
         if ('caches' in window) {
             // Create a custom cache for our site
-            caches.open('necron-portfolio-cache').then(cache => {
+            caches.open('iron-adamant-portfolio-cache').then(cache => {
                 // Cache critical resources
                 config.criticalResources.forEach(resource => {
                     cache.add(resource.url).catch(err => {

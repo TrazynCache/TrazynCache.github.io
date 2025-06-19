@@ -2149,7 +2149,7 @@ nav a.active {
 }
 
 /* Live App link styling */
-.project-link[href*="mdword.trazyncache.com"] {
+.project-link[href*="mdword.ironadamant.com"] {
     background: linear-gradient(135deg, var(--primary), rgba(0, 255, 157, 0.8));
     color: var(--bg-darker);
     padding: 8px 16px;
@@ -2161,13 +2161,13 @@ nav a.active {
     transition: all 0.3s ease;
 }
 
-.project-link[href*="mdword.trazyncache.com"]:hover {
+.project-link[href*="mdword.ironadamant.com"]:hover {
     transform: translateY(-2px);
     box-shadow: 0 5px 20px rgba(0, 255, 157, 0.6);
     background: linear-gradient(135deg, rgba(0, 255, 157, 1.2), var(--primary));
 }
 
-.project-link[href*="mdword.trazyncache.com"] i {
+.project-link[href*="mdword.ironadamant.com"] i {
     margin-right: 6px;
     animation: external-link-pulse 2s ease-in-out infinite;
 }

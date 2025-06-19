@@ -1,6 +1,6 @@
 // Service Worker for automatic cache management and version control
 const CACHE_VERSION = 'v1.0.2';
-const CACHE_NAME = `necron-portfolio-${CACHE_VERSION}`;
+const CACHE_NAME = `iron-adamant-portfolio-${CACHE_VERSION}`;
 const VERSION_CACHE = 'version-cache';
 const urlsToCache = [
   '/',

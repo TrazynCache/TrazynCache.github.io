@@ -456,7 +456,7 @@ const initApp = () => {
                         from_email: emailInput.value.trim(),
                         subject: subjectInput.value.trim(),
                         message: messageInput.value.trim(),
-                        to_email: 'trazyncache@gmail.com', // Your email address
+                        to_email: 'ironadamant@gmail.com', // Your email address
                         user_agent: navigator.userAgent, // Help identify bots
                         timestamp: new Date().toISOString(),
                         form_load_time: Math.round(timeTaken / 1000) + ' seconds'
@@ -540,7 +540,7 @@ const initApp = () => {
                 console.error('Form submission error:', error);
                 
                 // If both methods fail, show helpful error message
-                const errorMessage = `Unable to send your message at this time. Please email me directly at trazyncache@gmail.com or try again later.`;
+                const errorMessage = `Unable to send your message at this time. Please email me directly at ironadamant@gmail.com or try again later.`;
                 
                 // Show error in the UI
                 const errorDiv = document.createElement('div');

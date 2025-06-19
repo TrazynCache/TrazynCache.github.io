@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Automatic Version Updater for TrazynCache Portfolio
+ * Automatic Version Updater for IronAdamant Portfolio
  * 
  * This script automatically updates the version and build timestamp
  * in manifest.json to trigger cache clearing for users.

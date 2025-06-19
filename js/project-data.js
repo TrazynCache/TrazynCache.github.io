@@ -1,5 +1,5 @@
 /**
- * Project Data for Necron Portfolio
+ * Project Data for IronAdamant Portfolio
  * 
  * This file contains centralized project information used across the website.
  * Edit this file to modify existing projects or add new ones.
@@ -37,14 +37,14 @@ const projectData = [
         featured: true,
         shortDescription: "MDWord is a live web application that converts between Markdown and Word documents. Deployed and running on Netlify with continuous integration.",
         fullDescription: "MDWord is a production web application that provides seamless conversion between Markdown files and Word documents. Unlike local GitHub repositories, this is a fully deployed application running on Netlify's cloud platform, offering real-time document conversion capabilities accessible from anywhere.",
-        imageSrc: "https://github.com/TrazynCache/Markdown-Word-Converter/raw/main/images/MDWord_TrazynCache_screenshot_cropped.PNG",
+        imageSrc: "https://github.com/IronAdamant/Markdown-Word-Converter/raw/main/images/MDWord_IronAdamant_screenshot_cropped.PNG",
         imageAlt: "MDWord Screenshot",
         techTags: ["React", "Tailwind CSS", ".MD", "Word", "Netlify"],
         links: [
             {
                 text: "Live App",
                 icon: "fas fa-external-link-alt",
-                url: "https://mdword.trazyncache.com/",
+                url: "https://mdword.ironadamant.com/",
                 external: true
             }
         ]
@@ -56,14 +56,14 @@ const projectData = [
         featured: true,
         shortDescription: "An automation tool for precise control of input devices, designed for Windows 11 gaming applications.",
         fullDescription: "AutoClacker is an automation tool that provides precise control over mouse and keyboard inputs. Designed specifically for Windows 11 gaming, it offers customizable macros and input sequences for enhanced gaming experiences.",
-        imageSrc: "https://raw.githubusercontent.com/TrazynCache/AutoClacker/refs/heads/master/Images/AutoClacker_Not_Running.png",
+        imageSrc: "https://raw.githubusercontent.com/IronAdamant/AutoClacker/refs/heads/master/Images/AutoClacker_Not_Running.png",
         imageAlt: "AutoClacker Screenshot",
         techTags: ["C#", ".Net 8", "json"],
         links: [
             {
                 text: "GitHub",
                 icon: "fab fa-github",
-                url: "https://github.com/TrazynCache/AutoClacker",
+                url: "https://github.com/IronAdamant/AutoClacker",
                 external: true
             }
         ]
@@ -75,14 +75,14 @@ const projectData = [
         featured: true,
         shortDescription: "A financial tracking application that monitors and visualizes spending patterns.",
         fullDescription: "The Expense Tracker is a comprehensive financial tool that records and categorizes expenditures. It provides detailed visualizations of spending patterns, helping users maintain better control over their finances.",
-        imageSrc: "https://github.com/TrazynCache/Expense-Tracker-Updated/blob/master/image/Expense%20tracker%20front.png?raw=true",
+        imageSrc: "https://github.com/IronAdamant/Expense-Tracker-Updated/blob/master/image/Expense%20tracker%20front.png?raw=true",
         imageAlt: "Expense Tracker Interface",
         techTags: ["Python", "HTML", "CSS", "Javascript"],
         links: [
             {
                 text: "GitHub",
                 icon: "fab fa-github",
-                url: "https://github.com/TrazynCache/Expense-Tracker-Updated",
+                url: "https://github.com/IronAdamant/Expense-Tracker-Updated",
                 external: true
             }
         ]
@@ -94,14 +94,14 @@ const projectData = [
         featured: false,
         shortDescription: "A time tracking application that logs and analyzes task durations.",
         fullDescription: "The Simple Time Tracker is an efficient tool for monitoring time spent on various tasks. It provides detailed logging and analysis of time allocation, helping users optimize their productivity.",
-        imageSrc: "https://github.com/TrazynCache/Simple-Time-Tracker-for-Tasks/blob/master/images/Simple_Time_Tracker_front.png?raw=true",
+        imageSrc: "https://github.com/IronAdamant/Simple-Time-Tracker-for-Tasks/blob/master/images/Simple_Time_Tracker_front.png?raw=true",
         imageAlt: "Simple Time Tracker Interface",
         techTags: ["Python", "HTML", "CSS", "Javascript"],
         links: [
             {
                 text: "GitHub",
                 icon: "fab fa-github",
-                url: "https://github.com/TrazynCache/Simple-Time-Tracker-for-Tasks",
+                url: "https://github.com/IronAdamant/Simple-Time-Tracker-for-Tasks",
                 external: true
             }
         ]
@@ -111,7 +111,7 @@ const projectData = [
 
 // About section data - modify this to update the about text on the homepage
 const aboutData = {
-    title: "About Archives of TrazynCache",
+    title: "About Archives of IronAdamant",
     description: "I am a developer focused on creating practical technological solutions. My work combines human creativity with artificial intelligence to build tools that solve real problems and improve workflows. Each project represents a commitment to functional design and user-centered development, crafted through collaborative AI-assisted programming. This collection showcases working applications that demonstrate the potential of thoughtful software development."
 };
 

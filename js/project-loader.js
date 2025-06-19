@@ -1,5 +1,5 @@
 /**
- * Project Loader for Necron Portfolio
+ * Project Loader for IronAdamant Portfolio
  * 
  * This file contains the functionality to load and display projects from project-data.js
  * on both the index.html (featured projects) and projects.html (all projects) pages.
