@@ -101,7 +101,7 @@ If you want emails working **right now** with minimal setup:
 ## 📧 Current Configuration
 - Service ID: `service_portfolio`
 - Template ID: `template_contact`
-- Recipient Email: `ironadamant@gmail.com`
+- Recipient Email: `aron.amos@ironadamant.com`
 - Formspree endpoint: `https://formspree.io/f/YOUR_FORMSPREE_ID`
 
 ## 🐛 Troubleshooting

@@ -448,61 +448,14 @@ const initApp = () => {
             buttonText.textContent = submitButton.getAttribute('data-loading-text');
             
             try {
-                // Method 1: Try EmailJS first (if configured)
-                if (typeof emailjs !== 'undefined') {
-                    // Prepare form data for EmailJS
-                    const formData = {
-                        from_name: nameInput.value.trim(),
-                        from_email: emailInput.value.trim(),
-                        subject: subjectInput.value.trim(),
-                        message: messageInput.value.trim(),
-                        to_email: 'ironadamant@gmail.com', // Your email address
-                        user_agent: navigator.userAgent, // Help identify bots
-                        timestamp: new Date().toISOString(),
-                        form_load_time: Math.round(timeTaken / 1000) + ' seconds'
-                    };
-                    
-                    // Send email using EmailJS
-                    const response = await emailjs.send(
-                        'service_f33annn', // EmailJS service ID
-                        'template_tzf6es6',  // EmailJS template ID
-                        formData,
-                        '9PZKLXOs8AbeVUAdZ'    // EmailJS public key
-                    );
-                    
-                    if (response.status === 200) {
-                        // Show success message
-                        formSuccess.hidden = false;
-                        form.reset();
-                        
-                        // Announce success to screen readers
-                        const successMessage = formSuccess.textContent.trim();
-                        const liveRegion = document.createElement('div');
-                        liveRegion.setAttribute('role', 'alert');
-                        liveRegion.setAttribute('aria-live', 'polite');
-                        liveRegion.className = 'sr-only';
-                        liveRegion.textContent = successMessage;
-                        document.body.appendChild(liveRegion);
-                        
-                        // Remove after announcement
-                        setTimeout(() => {
-                            document.body.removeChild(liveRegion);
-                        }, 1000);
-                        
-                        // Focus on success message for screen readers
-                        formSuccess.focus();
-                        return; // Success, exit function
-                    }
-                }
-                
-                // Method 2: Fallback to Formspree (simpler setup)
+                // Use Formspree for form submission
                 const formData = new FormData();
                 formData.append('name', nameInput.value.trim());
                 formData.append('email', emailInput.value.trim());
                 formData.append('subject', subjectInput.value.trim());
                 formData.append('message', messageInput.value.trim());
                 
-                const response = await fetch('https://formspree.io/f/meogbbow', {
+                const response = await fetch('https://formspree.io/f/xjkrzwlq', {
                     method: 'POST',
                     body: formData,
                     headers: {
@@ -514,6 +467,14 @@ const initApp = () => {
                     // Show success message
                     formSuccess.hidden = false;
                     form.reset();
+                    
+                    // Enhanced success message
+                    formSuccess.innerHTML = `
+                        <i class="fas fa-check-circle" aria-hidden="true"></i>
+                        <strong>Message Transmitted Successfully!</strong><br>
+                        <small>Thank you for reaching out. I personally read every message and typically respond within 24-48 hours on business days. 
+                        You'll receive my response at the email address you provided.</small>
+                    `;
                     
                     // Announce success to screen readers
                     const successMessage = formSuccess.textContent.trim();
@@ -540,7 +501,7 @@ const initApp = () => {
                 console.error('Form submission error:', error);
                 
                 // If both methods fail, show helpful error message
-                const errorMessage = `Unable to send your message at this time. Please email me directly at ironadamant@gmail.com or try again later.`;
+                const errorMessage = `Unable to send your message at this time. Please email me directly at miko.amos@proton.me or try again later.`;
                 
                 // Show error in the UI
                 const errorDiv = document.createElement('div');

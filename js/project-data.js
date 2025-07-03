@@ -37,7 +37,7 @@ const projectData = [
         featured: true,
         shortDescription: "MDWord is a live web application that converts between Markdown and Word documents. Deployed and running on Netlify with continuous integration.",
         fullDescription: "MDWord is a production web application that provides seamless conversion between Markdown files and Word documents. Unlike local GitHub repositories, this is a fully deployed application running on Netlify's cloud platform, offering real-time document conversion capabilities accessible from anywhere.",
-        imageSrc: "https://github.com/IronAdamant/Markdown-Word-Converter/raw/main/images/MDWord_IronAdamant_screenshot_cropped.PNG",
+        imageSrc: "https://github.com/IronAdamant/Markdown-Word-Converter/blob/444c58f3e5513f2a3002371d3b31166ad54b9f94/images/screencapture-mdword-ironadamant-2025-07-03-12_11_28.png?raw=true",
         imageAlt: "MDWord Screenshot",
         techTags: ["React", "Tailwind CSS", ".MD", "Word", "Netlify"],
         links: [
@@ -111,7 +111,7 @@ const projectData = [
 
 // About section data - modify this to update the about text on the homepage
 const aboutData = {
-    title: "About Archives of IronAdamant",
+    title: "About the Developer",
     description: "I am a developer focused on creating practical technological solutions. My work combines human creativity with artificial intelligence to build tools that solve real problems and improve workflows. Each project represents a commitment to functional design and user-centered development, crafted through collaborative AI-assisted programming. This collection showcases working applications that demonstrate the potential of thoughtful software development."
 };
 
