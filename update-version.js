@@ -85,6 +85,34 @@ try {
   console.warn('Warning: Could not update service worker version:', error.message);
 }
 
+// Update HTML files with version meta tag
+const htmlFiles = ['index.html', 'projects.html', 'contact.html', '404.html'];
+htmlFiles.forEach(file => {
+  const filePath = path.join(__dirname, file);
+  try {
+    let content = fs.readFileSync(filePath, 'utf8');
+    
+    // Remove existing build-version meta tag if present
+    content = content.replace(/<meta name="build-version"[^>]*>/g, '');
+    
+    // Add new build-version meta tag after viewport
+    const viewportMatch = content.match(/<meta name="viewport"[^>]*>/);
+    if (viewportMatch) {
+      const insertPosition = viewportMatch.index + viewportMatch[0].length;
+      const versionMeta = `\n    <meta name="build-version" content="${manifest.build_timestamp}">`;
+      content = content.slice(0, insertPosition) + versionMeta + content.slice(insertPosition);
+    }
+    
+    // Update cache-busting version in script/css references
+    content = content.replace(/(\.(js|css))(\?v=\d+)?"/g, `$1?v=${Date.now()}"`);
+    
+    fs.writeFileSync(filePath, content);
+    console.log(`✅ Updated ${file} with version info`);
+  } catch (error) {
+    console.warn(`Warning: Could not update ${file}:`, error.message);
+  }
+});
+
 console.log('\n📋 Next steps:');
 console.log('1. Commit your changes: git add . && git commit -m "Version ' + newVersion + '"');
 console.log('2. Push to GitHub: git push');

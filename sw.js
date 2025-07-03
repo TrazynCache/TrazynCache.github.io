@@ -1,5 +1,5 @@
 // Service Worker for automatic cache management and version control
-const CACHE_VERSION = 'v1.0.2';
+const CACHE_VERSION = 'v1.0.4';
 const CACHE_NAME = `iron-adamant-portfolio-${CACHE_VERSION}`;
 const VERSION_CACHE = 'version-cache';
 const urlsToCache = [
@@ -108,8 +108,8 @@ self.addEventListener('fetch', event => {
       .then(response => {
         // Cache hit - return response
         if (response) {
-          // Update cache in background for HTML files
-          if (event.request.mode === 'navigate') {
+          // For HTML files, also update cache in background
+          if (event.request.mode === 'navigate' || event.request.url.endsWith('.html')) {
             event.waitUntil(updateCache(event.request));
           }
           return response;
@@ -130,10 +130,8 @@ self.addEventListener('fetch', event => {
           // Cache the fetched response
           caches.open(CACHE_NAME)
             .then(cache => {
-              // Set aggressive cache headers for static assets
-              if (event.request.url.match(/\.(js|css|woff2|png|jpg|jpeg|gif|svg|webp)$/)) {
-                cache.put(event.request, responseToCache);
-              }
+              // Cache static assets with version query string
+              cache.put(event.request, responseToCache);
             });
 
           return response;
