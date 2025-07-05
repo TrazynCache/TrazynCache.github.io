@@ -31,6 +31,25 @@
 
 const projectData = [
     {
+        id: "windows-sound-tracker",
+        title: "Windows Sound Tracker",
+        category: "tracking",
+        featured: true,
+        shortDescription: "A powerful Windows application that tracks and logs ALL system sounds in real-time, helping identify which programs are making sounds on your computer.",
+        fullDescription: "Windows Sound Tracker is a sophisticated monitoring tool that captures every sound event from every application on Windows 11. It provides real-time tracking with detailed information including process names, volume levels, and timestamps. The application features smart event batching, automatic CSV logging, and a clean GUI interface with system tray support for background monitoring.",
+        imageSrc: "https://raw.githubusercontent.com/IronAdamant/windows_sound_tracker/refs/heads/master/images/windows_sound_tracker_ui.png",
+        imageAlt: "Windows Sound Tracker Interface",
+        techTags: ["C++", "Win32 API", "WASAPI", "CMake"],
+        links: [
+            {
+                text: "GitHub",
+                icon: "fab fa-github",
+                url: "https://github.com/IronAdamant/windows_sound_tracker",
+                external: true
+            }
+        ]
+    },
+    {
         id: "mdword",
         title: "MDWord",
         category: "application",
