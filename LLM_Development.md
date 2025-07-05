@@ -5,6 +5,34 @@ Personal portfolio website showcasing development projects, built with vanilla J
 
 ## Recent Updates
 
+### 2025-01-05 - Social Media Updates & Branding Changes
+
+Added X (Twitter) social media link and updated branding across the portfolio:
+
+**Changes Made:**
+1. **Added X (Twitter) Link:**
+   - URL: https://x.com/Iron_Adamant
+   - Added to contact.html social links section
+   - Added to all footer sections (index.html, contact.html, projects.html)
+   - Included tooltip note: "This X account (created April 2023) is not related to other IronAdamant accounts"
+   - Used Font Awesome icon: `fa-x-twitter`
+
+2. **Updated Display Name Branding:**
+   - Changed displayed name from "IronAdamant" to "Iron_Adamant" throughout the site
+   - Updated in:
+     - Page titles (all pages)
+     - Hero title on homepage
+     - Contact page header ("Iron_Adamant's Transmission Coordinates")
+     - Meta descriptions
+     - Copyright notices in footers
+   - Note: GitHub and other platform URLs remain unchanged (still using IronAdamant)
+
+**Impact:**
+- Enhanced social media presence with X (Twitter) integration
+- Consistent branding with underscore format matching X handle
+- Clear distinction noted about X account independence
+- All social links now include: GitHub, X (Twitter), LinkedIn, Buy Me A Coffee
+
 ### 2025-01-05 - Windows Sound Tracker Addition
 
 Added Windows Sound Tracker project to the portfolio:
